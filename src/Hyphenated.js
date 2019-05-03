@@ -1,14 +1,12 @@
 import React from 'react';
-import createHyphenator from 'hyphen';
-import hyphenationPatternsEnUs from 'hyphen/patterns/en-us';
+import { hyphenators } from './hyphenators';
 
-const hyphenate = createHyphenator(hyphenationPatternsEnUs);
-
-const Hyphenated = ({ children }) => {
+const Hyphenated = ({ children, language }) => {
   return React.Children.toArray(children).map(item => {
     if (item.type === Hyphenated) {
       return item;
     } else if (typeof item === 'string') {
+      const hyphenate = hyphenators.get(language);
       return hyphenate(item);
     } else {
       const { children, ...props } = item.props;
