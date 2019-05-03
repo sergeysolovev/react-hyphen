@@ -1,5 +1,6 @@
 import createHyphenator from 'hyphen';
-import { enUs, enGb } from './languages';
+import { enUs } from './languages/en-us';
+import { enGb } from './languages/en-gb';
 
 jest.mock('hyphen');
 createHyphenator.mockImplementation(() => () => {});
