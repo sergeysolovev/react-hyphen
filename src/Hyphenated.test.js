@@ -1,6 +1,8 @@
 import React from 'react';
 import Hyphenated from './Hyphenated';
-import { shallow, mount, render } from 'enzyme';
+import { enGb, de, fr } from './languages';
+
+import { shallow, render } from 'enzyme';
 
 const softHyphen = '\u00AD';
 const hyphenate = (...syllables) => syllables.join(softHyphen);
@@ -149,6 +151,64 @@ describe('Hyphenated', () => {
         'o',
         'nis',
         'tic to one’s own.'
+      )
+    );
+  });
+
+  it('hyphenates the text “antagonistic” differently for en-GB language', () => {
+    const wrapper = shallow(<Hyphenated>antagonistic</Hyphenated>);
+    const wrapperEnGb = shallow(
+      <Hyphenated language={enGb}>antagonistic</Hyphenated>
+    );
+    expect(wrapper.text()).toEqual(wrapper.text());
+    expect(wrapperEnGb.text()).toEqual(wrapperEnGb.text());
+    expect(wrapper.text()).not.toEqual(wrapperEnGb.text());
+  });
+
+  it('hyphenates multilingual text using a few instances', () => {
+    const wrapper = render(
+      <p>
+        <Hyphenated>
+          It is possible to hyphenate multilingual text.{' '}
+          <Hyphenated language={fr}>
+            Je suis l'itinéraire donné par Pierre, un ami français.
+          </Hyphenated>{' '}
+          <Hyphenated language={de}>
+            Das Universalgenie war nicht nur Schriftsteller, sondern auch
+            Rechtsanwalt.
+          </Hyphenated>{' '}
+          Just wrap it using an appropriate language.
+        </Hyphenated>
+      </p>
+    );
+    expect(wrapper.text()).toEqual(
+      hyphenate(
+        'It is pos',
+        'si',
+        'ble to hy',
+        'phen',
+        'ate mul',
+        'ti',
+        'lin',
+        "gual text. Je suis l'iti",
+        'né',
+        'raire don',
+        'né par Pierre, un ami fran',
+        'çais. Das Uni',
+        'ver',
+        'sal',
+        'ge',
+        'nie war nicht nur Schrift',
+        'stel',
+        'ler, son',
+        'dern auch Rechts',
+        'an',
+        'walt. Just wrap it us',
+        'ing an ap',
+        'pro',
+        'pri',
+        'ate lan',
+        'guage.'
       )
     );
   });
