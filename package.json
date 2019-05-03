@@ -11,6 +11,7 @@
   "scripts": {
     "build": "node scripts/build.js",
     "clean": "node scripts/clean.js",
+    "prepublishOnly": "yarn run build",
     "test": "jest"
   },
   "dependencies": {
