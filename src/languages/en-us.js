@@ -1,5 +1,5 @@
 import patterns from 'hyphen/patterns/en-us';
-export default {
+export const enUs = {
   patterns,
-  id: 'en-US'
+  id: 'en-us'
 };

@@ -1,5 +1,5 @@
 import patterns from 'hyphen/patterns/en-gb';
-export default {
+export const enGb = {
   patterns,
-  id: 'en-GB'
+  id: 'en-gb'
 };

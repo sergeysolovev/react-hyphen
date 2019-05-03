@@ -1,10 +1,10 @@
 import createHyphenator from 'hyphen';
-import defaultLanguage from './languages/en-us';
+import { enUs } from './languages/en-us';
 
 const cache = {};
 
 const hyphenators = {
-  get: (language = defaultLanguage) => {
+  get: (language = enUs) => {
     if (!cache[language.id]) {
       cache[language.id] = createHyphenator(language.patterns);
     }

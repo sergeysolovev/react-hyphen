@@ -1,5 +1,5 @@
 import patterns from 'hyphen/patterns/fr';
-export default {
+export const fr = {
   patterns,
   id: 'fr'
 };
