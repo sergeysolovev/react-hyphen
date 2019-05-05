@@ -3,6 +3,8 @@
 const path = require('path');
 const paths = require('./paths');
 const babel = require('rollup-plugin-babel');
+const resolve = require('rollup-plugin-node-resolve');
+const json = require('rollup-plugin-json');
 const babelConfig = require(paths.babelConfig);
 const pkg = require(paths.packageJson);
 
@@ -28,11 +30,10 @@ module.exports = {
       format: 'cjs'
     }
   ],
-  plugins: [babel({ exclude: 'node_modules/**', ...babelConfig })],
-  external: id => {
-    return (
-      ['react', 'react-dom', 'hyphen'].indexOf(id) !== -1 ||
-      /^hyphen\/patterns\//.test(id)
-    );
-  }
+  plugins: [
+    json(),
+    resolve(),
+    babel({ exclude: 'node_modules/**', ...babelConfig })
+  ],
+  external: ['react', 'react-dom']
 };
