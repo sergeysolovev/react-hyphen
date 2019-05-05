@@ -1,8 +1,8 @@
-import createHyphenator from 'hyphen';
+import { createHyphenator } from './createHyphenator';
 import { enUs } from './languages/en-us';
 import { enGb } from './languages/en-gb';
 
-jest.mock('hyphen');
+jest.mock('./createHyphenator');
 createHyphenator.mockImplementation(() => () => {});
 
 describe('hyphenators', () => {
@@ -14,7 +14,7 @@ describe('hyphenators', () => {
     it('creates a hyphenator for en-US language when called without args', () => {
       const { hyphenators } = require('./hyphenators');
       hyphenators.get();
-      expect(createHyphenator).toHaveBeenCalledWith(enUs.patterns);
+      expect(createHyphenator).toHaveBeenCalledWith(enUs);
     });
 
     it('creates a hyphenator only once when called without args', () => {
