@@ -1,4 +1,4 @@
-import createHyphenator from 'hyphen';
+import { createHyphenator } from './createHyphenator';
 import { enUs } from './languages/en-us';
 
 const cache = {};
@@ -6,7 +6,7 @@ const cache = {};
 const hyphenators = {
   get: (language = enUs) => {
     if (!cache[language.id]) {
-      cache[language.id] = createHyphenator(language.patterns);
+      cache[language.id] = createHyphenator(language);
     }
     return cache[language.id];
   }
