@@ -1,13 +1,12 @@
 import React from 'react';
-import { hyphenators } from './hyphenators';
+import { hyphenated } from 'hyphenated';
 
 const Hyphenated = ({ children, language }) => {
   return React.Children.toArray(children).map(item => {
     if (item.type === Hyphenated) {
       return item;
     } else if (typeof item === 'string') {
-      const hyphenate = hyphenators.get(language);
-      return hyphenate(item);
+      return hyphenated(item, { language });
     } else {
       const { children, ...props } = item.props;
       return children

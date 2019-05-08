@@ -2181,6 +2181,33 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
+hyphenated-de@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyphenated-de/-/hyphenated-de-1.0.1.tgz#777c92bceaddcef65ce5761131ee1db5b5f85a90"
+  integrity sha512-axeeKT2+jEaVbR5gq62VeHgnJFTEOCs+shgAeD3IoaGp6cUsMKRCEHi8QAZoe57x+w7Ih005+tUsYULWdHulyg==
+
+hyphenated-en-gb@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyphenated-en-gb/-/hyphenated-en-gb-1.0.1.tgz#a08c296e414e8c5e89df10c66b156b93bb9b1d7f"
+  integrity sha512-sfFZruUquwRhE09T7iPq+fRg9G+vpG8HGO+oYH9ya8PGdLvlh2UhK2JRQhRB/S5n9Th2NeOX0LAo+CpCHnjzKw==
+
+hyphenated-en-us@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyphenated-en-us/-/hyphenated-en-us-1.0.1.tgz#62a03b79a8e6b491eaa669aa6eb9ba2703f31248"
+  integrity sha512-c/ja/B6le0/rtXjUV1GAyEkfB+o/H+Tepyh+x9B6QKVL5kNg2dHf7sh99hr0dxXn8ezmv/HSKW2nDiHPFr/vLg==
+
+hyphenated-fr@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyphenated-fr/-/hyphenated-fr-1.0.1.tgz#37a603f69045a7bc1abc280b735a6b0e3f332b5d"
+  integrity sha512-nfMEGIQxYwn0TXZfRoL+cF3ZWTr/9VUCM5ZPvBtSHoKojdrQnD1PqMK2wD+m2dtF/t/OG8YS9CB6oTwbl2rSZw==
+
+hyphenated@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hyphenated/-/hyphenated-1.0.1.tgz#4235a11f2f85fcb2f366cba1d2318f0d9c492116"
+  integrity sha512-cGGJ64UxD5Kt3qGqjxnN0Hx/BRjgP7XOY6xuh1jlDg3Ez+0GcNXpUT8VUPDkO2i0yqyDOpXu6iHX9Ms+fxUOMQ==
+  dependencies:
+    hyphenated-en-us "^1.0.1"
+
 iconv-lite@0.4.24, iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
