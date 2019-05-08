@@ -1,8 +1,8 @@
 import React from 'react';
 import Hyphenated from './Hyphenated';
-import { enGb } from './languages/en-gb';
-import { de } from './languages/de';
-import { fr } from './languages/fr';
+import enGb from 'hyphenated-en-gb';
+import de from 'hyphenated-de';
+import fr from 'hyphenated-fr';
 
 import { shallow, render } from 'enzyme';
 
