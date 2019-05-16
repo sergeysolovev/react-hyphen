@@ -3,8 +3,9 @@
   "version": "1.0.1",
   "license": "MIT",
   "files": [
-    "dist/",
-    "README.md"
+    "LICENSE",
+    "README.md",
+    "dist/"
   ],
   "main": "dist/react-hyphen.cjs.js",
   "scripts": {
