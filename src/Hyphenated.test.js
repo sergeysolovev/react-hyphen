@@ -1,10 +1,13 @@
 import React from 'react';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Hyphenated from './Hyphenated';
 import enGb from 'hyphenated-en-gb';
 import de from 'hyphenated-de';
 import fr from 'hyphenated-fr';
-
 import { shallow, render } from 'enzyme';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const softHyphen = '\u00AD';
 const hyphenate = (...syllables) => syllables.join(softHyphen);
