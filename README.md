@@ -1,5 +1,6 @@
 # react-hyphen
 
+[![npm version](https://img.shields.io/npm/v/react-hyphen.svg?style=flat)](https://npmjs.org/package/react-hyphen)
 [![CircleCI](https://circleci.com/gh/sergeysolovev/react-hyphen.svg?style=shield)](https://circleci.com/gh/sergeysolovev/react-hyphen)
 
 Hyphenate text in React components. Based on the
