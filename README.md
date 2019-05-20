@@ -11,6 +11,8 @@ Hyphenate text in React components. Based on the
 - **Multiple languages**: use any language from
   [hyphenated](https://github.com/sergeysolovev/hyphenated#supported-languages).
 
+[View demo →](https://hyphenated.netlify.com/)
+
 ## Quickstart
 
 Install from the command line:
