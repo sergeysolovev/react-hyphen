@@ -5,7 +5,7 @@ import Hyphenated from './Hyphenated';
 import enGb from 'hyphenated-en-gb';
 import de from 'hyphenated-de';
 import fr from 'hyphenated-fr';
-import { shallow, render } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -158,6 +158,24 @@ describe('Hyphenated', () => {
         'tic to one’s own.'
       )
     );
+  });
+
+  it('doesn’t add extra Hyphenated components to virtual DOM', () => {
+    const wrapper = mount(
+      <Hyphenated>
+        From Ambrose Bierce’s <em>Devil’s Dictionary</em>:
+        <Hyphenated>
+          <Paragraph>
+            <strong>
+              <Hyphenated>Scribbler</Hyphenated>
+            </strong>
+            , <em>n.</em> A professional writer whose views are antagonistic to
+            one’s own.
+          </Paragraph>
+        </Hyphenated>
+      </Hyphenated>
+    );
+    expect(wrapper.find(Hyphenated)).toHaveLength(3);
   });
 
   it('hyphenates the text “antagonistic” differently for en-GB language', () => {
