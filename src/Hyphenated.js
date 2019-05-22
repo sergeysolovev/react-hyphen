@@ -10,11 +10,7 @@ const Hyphenated = ({ children, language }) => {
     } else {
       const { children, ...props } = item.props;
       return children
-        ? React.cloneElement(
-            item,
-            props,
-            <Hyphenated language={language}>{children}</Hyphenated>
-          )
+        ? React.cloneElement(item, props, Hyphenated({ children, language }))
         : item;
     }
   });
