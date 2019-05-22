@@ -176,11 +176,11 @@ describe('Hyphenated', () => {
         <Hyphenated>
           It is possible to hyphenate multilingual text.{' '}
           <Hyphenated language={fr}>
-            Je suis l'itinéraire donné par Pierre, un ami français.
+            Je suis l'itinéraire donné par Pierre, un ami <span>français</span>.
           </Hyphenated>{' '}
           <Hyphenated language={de}>
-            Das Universalgenie war nicht nur Schriftsteller, sondern auch
-            Rechtsanwalt.
+            Das <span>Universalgenie</span> war nicht nur Schriftsteller,
+            sondern auch Rechtsanwalt.
           </Hyphenated>{' '}
           Just wrap it using an appropriate language.
         </Hyphenated>
