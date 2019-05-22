@@ -178,6 +178,33 @@ describe('Hyphenated', () => {
     expect(wrapper.find(Hyphenated)).toHaveLength(3);
   });
 
+  it('preserves the only child of wrapped components which have the only child', () => {
+    const WrappedComponent = ({ children }) => children;
+    const wrapper = mount(
+      <Hyphenated>
+        <WrappedComponent>
+          <span>a single child</span>
+        </WrappedComponent>
+      </Hyphenated>
+    );
+    expect(() =>
+      React.Children.only(wrapper.find(WrappedComponent).props().children)
+    ).not.toThrow();
+  });
+
+  it('preserves no children of wrapped components which have no children', () => {
+    const WrappedComponent = () => null;
+    const wrapper = mount(
+      <Hyphenated>
+        <WrappedComponent />
+      </Hyphenated>
+    );
+    expect(wrapper.find(WrappedComponent)).toHaveLength(1);
+    expect(
+      React.Children.count(wrapper.find(WrappedComponent).props().children)
+    ).toBe(0);
+  });
+
   it('hyphenates the text “antagonistic” differently for en-GB language', () => {
     const wrapper = shallow(<Hyphenated>antagonistic</Hyphenated>);
     const wrapperEnGb = shallow(
