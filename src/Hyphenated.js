@@ -4,7 +4,9 @@ import { hyphenated } from 'hyphenated';
 const Hyphenated = ({ children, language }) => {
   const childrenCount = React.Children.count(children);
   const hyphenateChild = child => {
-    if (child.type === Hyphenated) {
+    if (child === null) {
+      return null;
+    } else if (child.type === Hyphenated) {
       return child;
     } else if (typeof child === 'string') {
       return hyphenated(child, { language });
