@@ -262,4 +262,14 @@ describe('Hyphenated', () => {
       )
     );
   });
+
+  it('doesn’t crash if there are null children', () => {
+    render(
+      <Hyphenated>
+        <span>a child with text</span>
+        {null}
+        <span>a child with text</span>
+      </Hyphenated>
+    );
+  });
 });
