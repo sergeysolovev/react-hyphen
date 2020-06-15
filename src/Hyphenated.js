@@ -2,6 +2,7 @@ import React from 'react';
 import { hyphenated } from 'hyphenated';
 
 const Hyphenated = ({ children, language }) => {
+  handleDangerouslySetInnerHTML(children, language);
   const childrenCount = React.Children.count(children);
   const hyphenateChild = child => {
     if (child === null) {
@@ -22,5 +23,14 @@ const Hyphenated = ({ children, language }) => {
   }
   return React.Children.map(children, hyphenateChild);
 };
+
+function handleDangerouslySetInnerHTML(children, language) {
+  if (children && children.props && children.props.dangerouslySetInnerHTML) {
+    children.props.dangerouslySetInnerHTML.__html = hyphenated(
+      children.props.dangerouslySetInnerHTML.__html,
+      { language }
+    );
+  }
+}
 
 export default Hyphenated;

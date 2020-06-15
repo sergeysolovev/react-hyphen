@@ -272,4 +272,26 @@ describe('Hyphenated', () => {
       </Hyphenated>
     );
   });
+
+  it('hyphenates markup from dangerouslySetInnerHTML', () => {
+    const __html = `<strong>Scribbler</strong>, <span>n.</span> A professional writer whose views are antagonistic to one’s own.`;
+    const wrapper = mount(
+      <Hyphenated>
+        <section dangerouslySetInnerHTML={{ __html }} />
+      </Hyphenated>
+    );
+    expect(wrapper.text()).toEqual(
+      hyphenate(
+        'Scrib',
+        'bler, n. A pro',
+        'fes',
+        'sion',
+        'al writer whose views are an',
+        'tag',
+        'o',
+        'nis',
+        'tic to one’s own.'
+      )
+    );
+  });
 });
